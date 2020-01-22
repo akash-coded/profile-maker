@@ -1,4 +1,4 @@
-# user-forum
+# Profile Maker
 
 A demonstrative forum with login, welcome and profile pages.
 
@@ -17,3 +17,4 @@ The site is powered by *PHP 7.2* and employs *Bootstrap4* for visuals.
 * Keys/Constraints
   * Primary Keys - *PK_{Table Name}*
   * Foreign Keys - *FK_{Table Name}*
+  * Unique - *UC_{Table_Name}*
