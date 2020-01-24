@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-/* if (isset($_SESSION["user"])!="") {
-header("Location: welcome.php");
-exit;
-} */
+if (isset($_SESSION["user"])) {
+    header("Location: welcome.php");
+    exit;
+}
 
 $username = $password = "";
 $usernameErr = $passwordErr = "";
@@ -13,15 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($username == "akash") {
-        if ($password == "mindfire") {
+    if ("akash" == $username) {
+        if ("mindfire" == $password) {
             $_SESSION["user"] = $username;
-            header("Location:welcome.php");
+            header("Location: welcome.php");
         } else {
-            $passwordErr = "Wrong password";
+            $passwordErr = 1;
         }
     } else {
-        $usernameErr = "Invalid username";
+        $usernameErr = 1;
     }
 }
 ?>
@@ -29,42 +29,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-login'])) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <meta name="description" content="A simple resume created using HTML and Bootstrap" />
+    <meta name="description" content="Login page for profile maker" />
     <meta name="robots" content="index, follow" />
-    <meta name='author' content="Akash Das">
-    <title>Login</title>
+    <meta name="googlebot" content="index, follow" />
+    <meta name="author" content="Akash Das" />
+    <title>Login | Profile Maker</title>
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16" />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="assets/css/login_style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/login.min.css" />
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Sign in</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form" method="post"
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <form class="form-signin" role="form" method="post"
                             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input id="login-username" class="form-control"
-                                        placeholder="<?php echo !$usernameErr ? "Username" : $usernameErr ?>"
-                                        name="username" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <input id="login-password" class="form-control"
-                                        placeholder="<?php echo !$passwordErr ? "Password" : $passwordErr ?>"
-                                        name="password" type="password" value="">
-                                </div>
-                                <input id="btn-login" class="btn btn-lg btn-primary btn-square" name="btn-login"
-                                    type="submit" value="Login">
-                            </fieldset>
+                            <div class="form-label-group">
+                                <input type="text" id="inputUsername" class="form-control <?php echo (1 == $usernameErr) ? 'is-invalid' : '';
+                                                                                            unset($usernameErr) ?>"
+                                    name="username" placeholder="Username" required autofocus />
+                                <label for="inputUsername">Username</label>
+                                <div class="invalid-feedback">Please enter a valid username</div>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control <?php echo (1 == $passwordErr) ? 'is-invalid' : '';
+                                                                                                unset($passwordErr) ?>"
+                                    name="password" placeholder="Password" required />
+                                <label for="inputPassword">Password</label>
+                                <div class="invalid-feedback">Opps! You have entered an invalid password.</div>
+                            </div>
+
+                            <button id="btnLogin" class="btn btn-lg btn-primary btn-block text-uppercase"
+                                name="btn-login" type="submit">
+                                Sign in
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -72,6 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-login'])) {
         </div>
     </div>
 
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
