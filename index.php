@@ -52,17 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn-login'])) {
                         <form class="form-signin" role="form" method="post"
                             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                             <div class="form-label-group">
-                                <input type="text" id="inputUsername" class="form-control <?php echo (1 == $usernameErr) ? 'is-invalid' : '';
-                                                                                            unset($usernameErr) ?>"
-                                    name="username" placeholder="Username" required autofocus />
+                                <input type="text" id="inputUsername"
+                                    class="form-control <?php echo (1 == $usernameErr) ? 'is-invalid' : ''; ?>"
+                                    name="username" placeholder="Username" value="akash" required="required"
+                                    autofocus="autofocus" />
                                 <label for="inputUsername">Username</label>
                                 <div class="invalid-feedback">Please enter a valid username</div>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control <?php echo (1 == $passwordErr) ? 'is-invalid' : '';
-                                                                                                unset($passwordErr) ?>"
-                                    name="password" placeholder="Password" required />
+                                <input type="password" id="inputPassword"
+                                    class="form-control <?php echo (1 == $passwordErr) ? 'is-invalid' : ''; ?>"
+                                    name="password" placeholder="Password" value="mindfire" required="required" />
                                 <label for="inputPassword">Password</label>
                                 <div class="invalid-feedback">Opps! You have entered an invalid password.</div>
                             </div>
