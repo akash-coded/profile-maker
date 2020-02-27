@@ -4,13 +4,51 @@
 }
 
 body {
-  background: #1abc9c !important;
-  background: linear-gradient(to right, #0062e6, #33aeff);
+  background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
 }
 
 .btn-primary {
-  background-color: #2c3e50 !important;
+  background-image: -webkit-linear-gradient(290deg, #2b5876 0%, #4e4376 100%);
+  background-image: -o-linear-gradient(290deg, #2b5876 0%, #4e4376 100%);
+  background-image: linear-gradient(20deg, #2b5876 0%, #4e4376 100%);
 }
+
+.btn-rounded {
+  border-radius: 12px;
+}
+
+/*---------------------------------------------*/
+.btn-show-pass {
+  font-size: 15px;
+  color: #999999;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 12px;
+  padding: 0 5px;
+  cursor: pointer;
+  -webkit-transition: background 0.4s;
+  -o-transition: background 0.4s;
+  -moz-transition: background 0.4s;
+  transition: background 0.4s;
+}
+
+.btn-show-pass:hover {
+  color: #57b846;
+}
+
+.btn-show-pass.active {
+  color: #57b846;
+}
+
+/*---------------------------------------------*/
 
 .card-signin {
   border: 0;

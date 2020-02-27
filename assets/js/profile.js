@@ -1,6 +1,10 @@
 (function($) {
   "use strict";
 
+  $(document).ready(function() {
+    bsCustomFileInput.init();
+  });
+
   $(document).scroll(function() {
     var scrollDistance = $(this).scrollTop();
     if (scrollDistance > 100) {

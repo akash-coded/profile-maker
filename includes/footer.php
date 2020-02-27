@@ -1,5 +1,5 @@
-    <footer class="copyright py-2 text-center text-white fixed-bottom">
+    <section class="copyright py-4 text-center text-white">
         <div class="container">
-            <small>Copyright &copy; Profile Maker - Designed by Akash Das</small>
+            <small>Copyright &copy; Profile Maker - 2020</small>
         </div>
-    </footer>
+    </section>
